@@ -26,6 +26,16 @@ int main() {
 		cin >> source_base;
 		cout << "The target base  (i.e., the base to convert from):\n>> ";
 		cin >> target_base;
+		
+		//check source base and target base
+		if (source_base != 2 && source_base != 8 && source_base != 10 && source_base != 16) {
+			cout << "Invalid source base";
+			break;
+		}
+		if (target_base != 2 && target_base != 8 && target_base != 10 && target_base != 16) {
+			cout << "Invalid target base";
+			break;
+		}
 
 		if (Validate(input_number, source_base)) {
 		cout << "\nThe result of converting the number " << input_number << " from base " << source_base << " to " << target_base << " is: \n";
@@ -132,30 +142,5 @@ bool Validate(int num, int source) {
 		}
 	}
 
-	else if (source == 10) {
-		while (num > 0) {
-			r = num % 10;
-			num /= 10;
-			i++;
-			if (r > 9)
-				return false;
-		}
-		if (r > 9) {
-			return false;
-		}
-	}
-
-	else if (source == 16) {
-		while (num > 0) {
-			r = num % 16;
-			num /= 16;
-			i++;
-			if (r > 15)
-				return false;
-		}
-		if (r > 15) {
-			return false;
-		}
-	}
  }
 
